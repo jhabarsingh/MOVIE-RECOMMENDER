@@ -15,13 +15,14 @@ stopset = set(stopwords.words('english'))
 
 # Tokenization
 vectorizer = TfidfVectorizer(use_idf = True,lowercase = True, strip_accents='ascii',stop_words=stopset)
+vectorizer.fit_transform(dataset.Comments)
 X = vectorizer.fit_transform(dataset.Comments)
 y = dataset.Reviews
 
 
 filename = 'token.pkl'
 with open(filename, "wb") as wfile:
-    pickle.dump(vectorizer, wfile)
+    pickle.dump(vectorizer, wfile, protocol=pickle.HIGHEST_PROTOCOL)
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)

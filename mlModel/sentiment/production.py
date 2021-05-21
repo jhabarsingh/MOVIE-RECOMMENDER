@@ -23,11 +23,12 @@ vectorizer = None
 with open(joiner("token.pkl"), "rb") as rfile:
     vectorizer = pickle.load(rfile)
 
-text = ["Fuck you"]
+text = ["fuck you"]
 
 X = vectorizer.fit_transform(text)
 print(X)
 
+X.toarray()
 clf = None
 
 with open(joiner("sentiment.pkl"), "rb") as rfile:
