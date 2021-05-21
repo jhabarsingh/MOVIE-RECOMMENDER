@@ -3,10 +3,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .recommender import predict as recommend
 from .sentiment import predict as sentiment
+import json
 
 class MovieRecommenderApi(APIView):
     '''
-        HateSpeech Detection POST APi
+        Movie Recommender
     '''
 
     def post(self, request):
@@ -31,9 +32,10 @@ class MovieRecommenderApi(APIView):
         }
         return Response(data)
 
+
 class SentimentApi(APIView):
     '''
-        HateSpeech Detection POST APi
+        Movie Review Sentiment Analyser
     '''
 
     def post(self, request):
@@ -41,24 +43,19 @@ class SentimentApi(APIView):
             text = request.data.get("text", None)
             if text == None:
                 raise Exception("Invalid text")
-            if len(text.strip()) == 0:
+            if len(text) == 0:
                 raise Exception("Zero Size")
         except:
             data = {
-                "message": "invalid Message"
+                "response": "invalid Message"
             }
             return Response(data)
 
-        text = text.strip()
         
         prediction = sentiment(text)
-        message = "Some error has been occured, Please Try Later"
-
-        if prediction == 0:
-            message = "no"
-        else:
-            message = "yes"
+        print(len(text))
+        
         data = {
-            "hatespeech": prediction
+            "response": prediction
         }
         return Response(data)

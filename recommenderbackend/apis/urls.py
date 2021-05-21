@@ -8,5 +8,5 @@ app_name = "apis"
 
 urlpatterns = [
     path('recommender/', MovieRecommenderApi.as_view(), name="recommender"),
-    # path('sentiment', SentimentApi.as_view(), name="sentiment")
+    path('sentiment/', SentimentApi.as_view(), name="sentiment")
 ]
