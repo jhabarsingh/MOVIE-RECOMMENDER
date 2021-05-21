@@ -61,12 +61,11 @@ test = test.toarray()
 
 test.shape
 
+from sklearn.metrics import accuracy_score
 
 model = RandomForestClassifier(n_estimators = 100)
 model.fit(train_x, train_y)
 train_predict = model.predict(test)
-print(train_predict)
-
 
 with open("model.pkl", "wb") as wfile:
     pickle.dump(model, wfile)
