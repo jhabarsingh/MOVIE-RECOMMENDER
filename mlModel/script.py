@@ -1,13 +1,9 @@
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import os
 import numpy as np
 import pandas as pd
+import os
+import pickle
 
 data = pd.read_csv('./dataset/movie_metadata.csv')
-
-
-# keep important features which can help to recommend movies, drop others
 
 data = data.drop(['color', 'num_critic_for_reviews', 'duration',
         'director_facebook_likes', 'actor_3_facebook_likes',
@@ -29,6 +25,8 @@ data['movie_title'] = data['movie_title'].apply(lambda a:a[:-1])
 
 data['combined'] = data['director_name']+' '+data['actor_2_name']+' '+data['genres']+' '+data['actor_1_name']+' '+data['actor_3_name']
 
+# Saving preprocessed data 
+data.to_csv('recommender.csv', index=False)
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -38,6 +36,10 @@ vec = CountVectorizer()
 vec_matrix = vec.fit_transform(data['combined'])
 
 similarity = cosine_similarity(vec_matrix)
+
+# Save tokenizer for future use
+with open('recommender.pkl', 'wb') as f:
+    pickle.dump(similarity, f, protocol=pickle.HIGHEST_PROTOCOL)
 
 def recommend(movie):
     if movie not in data['movie_title'].unique():
