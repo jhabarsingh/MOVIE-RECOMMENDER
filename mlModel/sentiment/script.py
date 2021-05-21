@@ -19,7 +19,7 @@ X = vectorizer.fit_transform(dataset.Comments)
 y = dataset.Reviews
 
 
-filename = 'sentiment.pkl'
+filename = 'token.pkl'
 with open(filename, "wb") as wfile:
     pickle.dump(vectorizer, wfile)
 
@@ -30,19 +30,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random
 clf = naive_bayes.MultinomialNB()
 clf.fit(X_train,y_train)
 
-
-accuracy_score(y_test,clf.predict(X_test))*100
-
+# print(X_test)
+print(accuracy_score(y_test,clf.predict(X_test))*100)
 
 clf = naive_bayes.MultinomialNB()
 clf.fit(X,y)
 
-
-
-accuracy_score(y_test,clf.predict(X_test))*100
-
-
 filename = 'sentiment.pkl'
-
 with open(filename, "wb") as wfile:
     pickle.dump(clf, wfile)

@@ -4,45 +4,33 @@ import nltk
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
-from sklearn import naive_bayes
-from sklearn.metrics import roc_auc_score,accuracy_score
 import pickle
+import os
+
 nltk.download("stopwords")
 
 
-dataset = pd.read_csv('./reviews.txt',sep = '\t', names =['Reviews','Comments'])
 stopset = set(stopwords.words('english'))
 
 # Tokenization
-vectorizer = TfidfVectorizer(use_idf = True,lowercase = True, strip_accents='ascii',stop_words=stopset)
-X = vectorizer.fit_transform(dataset.Comments)
-y = dataset.Reviews
+def joiner(file_name):
+        paths = os.path.dirname(os.path.abspath(__file__))
+        paths = os.path.join(paths, file_name)
+        return paths
 
+vectorizer = None
 
-filename = 'sentiment.pkl'
-with open(filename, "wb") as wfile:
-    pickle.dump(vectorizer, wfile)
+with open(joiner("token.pkl"), "rb") as rfile:
+    vectorizer = pickle.load(rfile)
 
+text = ["Fuck you"]
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
+X = vectorizer.fit_transform(text)
+print(X)
 
+clf = None
 
-clf = naive_bayes.MultinomialNB()
-clf.fit(X_train,y_train)
+with open(joiner("sentiment.pkl"), "rb") as rfile:
+    clf = pickle.load(rfile)
 
-
-accuracy_score(y_test,clf.predict(X_test))*100
-
-
-clf = naive_bayes.MultinomialNB()
-clf.fit(X,y)
-
-
-
-accuracy_score(y_test,clf.predict(X_test))*100
-
-
-filename = 'sentiment.pkl'
-
-with open(filename, "wb") as wfile:
-    pickle.dump(clf, wfile)
+clf.predict(X)
