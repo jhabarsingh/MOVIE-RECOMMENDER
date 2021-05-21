@@ -25,10 +25,9 @@ class MovieRecommenderApi(APIView):
         text = text.strip()
         
         prediction = recommend(text)
-        message = "Some error has been occured, Please Try Later"
 
         data = {
-            "hatespeech": message
+            "movies": prediction
         }
         return Response(data)
 
