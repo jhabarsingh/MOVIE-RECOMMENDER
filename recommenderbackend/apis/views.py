@@ -27,12 +27,8 @@ class MovieRecommenderApi(APIView):
         prediction = recommend(text)
         message = "Some error has been occured, Please Try Later"
 
-        if prediction == 0:
-            message = "no"
-        else:
-            message = "yes"
         data = {
-            "hatespeech": prediction
+            "hatespeech": message
         }
         return Response(data)
 

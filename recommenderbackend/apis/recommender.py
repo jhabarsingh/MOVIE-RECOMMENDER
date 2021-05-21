@@ -3,12 +3,13 @@ import pandas as pd
 import os
 import pickle
 
-data = pd.read_csv('./dataset/recommender.csv')
 
 def joiner(file_name):
         paths = os.path.dirname(os.path.abspath(__file__))
         paths = os.path.join(paths, file_name)
         return paths
+
+data = pd.read_csv(joiner('recommender.csv'))
 
 recommender = None
 
@@ -18,7 +19,7 @@ with open(joiner("recommender.pkl"), "rb") as rfile:
 
 # Save tokenizer for future use
 
-def recommend(movie):
+def predict(movie):
     if movie not in data['movie_title'].unique():
         return('Sorry! The movie is not Available')
     else:
@@ -33,5 +34,4 @@ def recommend(movie):
         return movies
 
 
-print(recommend('And So It Goes'))
 

@@ -4,9 +4,9 @@ from .views import (
     SentimentApi
 )
 
-app_name = "hatespeechapi"
+app_name = "apis"
 
 urlpatterns = [
-    path('/recommender', MovieRecommenderApi.as_view(), name="recommender"),
-    path('/sentiment', SentimentApi.as_view(), name="sentiment")
+    path('recommender/', MovieRecommenderApi.as_view(), name="recommender"),
+    # path('sentiment', SentimentApi.as_view(), name="sentiment")
 ]
