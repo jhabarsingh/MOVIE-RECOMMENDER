@@ -159,7 +159,7 @@ export default({
       },
 
       movieRecommender () {
-          let url = "http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/"
+          let url = "https://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/"
           let movie = {
               "text": localStorage.getItem("movie")
           }
