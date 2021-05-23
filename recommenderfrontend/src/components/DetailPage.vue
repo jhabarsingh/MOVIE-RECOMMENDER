@@ -2,10 +2,7 @@
     <div>
         <div v-if="$store.state.casts != null && $store.state.recommended != null">
             <MovieDetail />
-
-            <v-divider />
-            
-            <MovieCastList />
+      
             
             <v-divider />
             
@@ -21,14 +18,12 @@
 import Loading from './Loading.vue'
 import Recommend from './Recommend.vue'
 import MovieDetail from './MovieDetail.vue'
-import MovieCastList from './MovieCastList.vue'
 
 export default({
     components: {
         Loading,
         Recommend,
-        MovieDetail,
-        MovieCastList
+        MovieDetail
     },
     data() {
         return {
