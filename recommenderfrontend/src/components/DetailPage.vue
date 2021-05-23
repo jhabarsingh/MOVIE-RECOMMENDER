@@ -179,7 +179,7 @@ export default({
         if(localStorage.getItem("movie")) {
             // Let The page Load
             this.movieRecommender()
-            this.sleep(2000).then(() => {
+            this.sleep(200).then(() => {
                 this.fetchDetail();
                 console.log(this.$store.state);     
             })

@@ -1,6 +1,6 @@
 <template>
     <div>
-        Movie Detail
+        <MoviePoster/>
         <MovieCastDetail />
     </div>
 </template>
@@ -8,6 +8,7 @@
 
 <script>
 import MovieCastDetail from './MovieCastDetail.vue'
+import MoviePoster from './MoviePoster.vue'
 
 export default {
     data() {
@@ -16,7 +17,8 @@ export default {
         })
     },
     components: {
-        MovieCastDetail
+        MovieCastDetail,
+        MoviePoster
     },
     props: [
         'movies'
