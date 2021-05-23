@@ -3,6 +3,7 @@
     class="mx-auto"
     color="grey lighten-4"
     max-width="600"
+    style="margin: 40px 0px;"
   >
     <v-card-title>
       <v-icon
@@ -15,7 +16,7 @@
       </v-icon>
       <v-row align="start">
         <div class="caption grey--text text-uppercase">
-          No Data Available
+          Sorry But Couldn't find any recommendation
         </div>
         <div>
         </div>

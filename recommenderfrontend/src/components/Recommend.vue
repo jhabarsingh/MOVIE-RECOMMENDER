@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container class="grey lighten-5"
-      v-if="true"
+      v-if="$store.state.recommended.length != 0"
     >
 
      <v-card-title class="text-center justify-center py-6">
@@ -11,7 +11,7 @@
     </v-card-title>
       <v-row no-gutters>
         <v-col
-          v-for="n in getMovies"
+          v-for="n in $store.state.recommended"
           :key="n"
           cols="12"
           sm="6"

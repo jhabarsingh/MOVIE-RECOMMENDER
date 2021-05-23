@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="$store.state.casts != null">
+        <div v-if="$store.state.casts != null && $store.state.recommended != null">
             <MovieDetail />
 
             <v-divider />
@@ -176,6 +176,18 @@ export default({
               return e.json();
           }).then(details => {
               this.$store.state.recommended = details;
+              let movies = new Set();
+              for(let i=0;  i < this.$store.state.recommended.movies.length; i++) {
+                movies.add(this.$store.state.recommended.movies[i]);
+              }
+              let mob = [];
+
+              movies.forEach(e => {
+                mob.push(e);
+              })
+              console.log(mob);
+              this.$store.state.recommended = mob;
+            //   this.$store.state.recommended = [];
           })
       }
 
