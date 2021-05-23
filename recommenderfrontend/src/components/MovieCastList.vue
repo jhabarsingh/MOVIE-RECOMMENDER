@@ -46,7 +46,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <DialogCastDetail />
+    <DialogCastDetail v-if="cards.length != 0" />
   </v-card>
 </template>
 
@@ -88,6 +88,8 @@
             obj.flex = 6;
             this.cards.push(obj);
         }
+
+        this.$store.state.casts = item; 
     }
   }
 </script>
