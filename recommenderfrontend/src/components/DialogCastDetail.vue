@@ -4,19 +4,11 @@
       v-model="$store.state.dialog"
       width="500"
     >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          Click Me
-        </v-btn>
-      </template>
 
       <v-card>
-        <v-card-title class="headline grey lighten-2">
+        <v-card-title class="headline grey lighten-2"
+            style="text-transform:uppercase"
+        >
           {{ $store.state.casts[+$store.state.present_cast].name  }}
         </v-card-title>
 
