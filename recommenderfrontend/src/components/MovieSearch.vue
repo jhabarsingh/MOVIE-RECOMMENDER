@@ -72,6 +72,7 @@
       },
 
       fetchDetail() {
+          
           let url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${this.select}`;
           
           fetch(url).then(e => {
@@ -82,7 +83,6 @@
                   // Logic to handle not found;
               }
               console.log(e.results);
-              
               this.movie = e.results[0];
               this.id = e.results[0].id;
               this.getMovieDetail(this.id);
@@ -104,10 +104,10 @@
 
       },
 
-      getPosters(movie_name) {
+      async getPosters(movie_name) {
         let url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${movie_name}`;
-        
-        fetch(url).then(movies => {
+        let posters = null;
+        await fetch(url).then(movies => {
             return movies.json();
         }).then(movies => {
             let n = movies.results.length;
@@ -118,8 +118,10 @@
             let movie = movies.results[0];
             
             let poster = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
-            console.log(poster)
+            posters = (poster)
         })
+
+        return posters
       },
 
       getMovieCast(id) {
@@ -147,7 +149,27 @@
                 }   
                 console.log(casts);
             })
+      },
+    
+      async getMovieIdFromName(movie_name) {
+          let url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${movie_name}`;
+          let ids = null;
+          await fetch(url).then(movies => {
+              return movies.json();
+          }).then(movies => {
+              let n = movies.results.length;
+              if(n == 0) {
+                  // Logic to handle not found;
+              }
+              
+              let movie = movies.results[0];
+              let id = movie.id;
+              ids = id;
+         })
+
+         return ids;
       }
+
     },
 
     created () {
