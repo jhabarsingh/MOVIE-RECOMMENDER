@@ -17,7 +17,7 @@
     <v-container fluid>
       <v-row dense>
         <v-col
-          v-for="card in cards"
+          v-for="(card, index) in cards"
           :key="card.title"
           :cols="card.flex"
         >
@@ -35,7 +35,9 @@
               <v-spacer></v-spacer>
 
 
-              <v-btn icon>
+              <v-btn icon
+                @click="setDialog(index)"
+              >
                 <v-icon>mdi-send</v-icon>
               </v-btn>
 
@@ -44,17 +46,30 @@
         </v-col>
       </v-row>
     </v-container>
+    <DialogCastDetail />
   </v-card>
 </template>
 
 
 <script>
+  import DialogCastDetail from './DialogCastDetail.vue';
+
   export default {
     data: () => ({
       cards: [
 
       ],
     }),
+    components: {
+        DialogCastDetail
+    },
+    methods: {
+        setDialog(key) {
+            this.$store.state.present_cast = key;
+            this.$store.state.dialog = true;
+            console.log(key);
+        }
+    },
 
     async created() {
         let item = []
@@ -70,6 +85,7 @@
             obj.dob = item[i].birthday;
             obj.profession = item[i].known_for_department
             obj.profile = "https://image.tmdb.org/t/p/original" + item[i].profile_path;
+            obj.flex = 6;
             this.cards.push(obj);
         }
     }

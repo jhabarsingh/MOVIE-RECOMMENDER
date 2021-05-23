@@ -11,7 +11,9 @@ export default new Vuex.Store({
     poster: null,
     movieDetail: null,
     casts: null,
-    recommended: null
+    recommended: null,
+    dialog: false,
+    present_cast: false
 
   },
   mutations: {
