@@ -49,7 +49,9 @@
         states: null,
         api_key: "88797a394acfd740740c5fefa973fca6",
         id: null,
-        poster: ""
+        poster: "",
+        movie: null,
+        casts: null
       }
     },
     watch: {
@@ -80,47 +82,71 @@
                   // Logic to handle not found;
               }
               console.log(e.results);
-
+              
+              this.movie = e.results[0];
               this.id = e.results[0].id;
+              this.getMovieDetail(this.id);
+
               this.poster = "https://image.tmdb.org/t/p/original" + e.results[0].backdrop_path;
               
-              console.log(this.poster);
-
-              let detail_url = `https://api.themoviedb.org/3/movie/${+this.id}?api_key=${this.api_key}`
-              fetch(detail_url).then(ee => {
-                    return ee.json();
-                }).then(ee => {
-                    console.log(ee);
-
-                })
-
-              let cast_url = `https://api.themoviedb.org/3/movie/${+this.id}/credits?api_key=${this.api_key}`
-              fetch(cast_url).then(ee => {
-                    return ee.json();
-                }).then(ee => {
-                    let top_cast = ee.null;
-
-                    if(ee.cast.length>=10){
-                       top_cast = [0,1,2,3,4,5,6,7,8,9];
-                    }
-                    else {
-                        top_cast = [0,1,2,3,4];
-                    }
-                    let casts = [];
-
-                    for(var my_cast in top_cast){
-                        let obj = {};
-                        obj.id = (ee.cast[my_cast].id)
-                        obj.name = (ee.cast[my_cast].name);
-                        obj.profession = (ee.cast[my_cast].character);
-                        obj.profile = ("https://image.tmdb.org/t/p/original"+ee.cast[my_cast].profile_path);
-                        casts.push(obj);
-                    }   
-                    console.log(casts);
-                })
-            
-            
+              this.getMovieCast(this.id);
           })
+      },
+
+      getMovieDetail(id) {
+            let detail_url = `https://api.themoviedb.org/3/movie/${id}?api_key=${this.api_key}`
+            
+            fetch(detail_url).then(data => {
+                return data.json();
+            }).then(data => {
+                console.log(data);
+            })
+
+      },
+
+      getPosters(movie_name) {
+        let url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${movie_name}`;
+        
+        fetch(url).then(movies => {
+            return movies.json();
+        }).then(movies => {
+            let n = movies.results.length;
+            if(n == 0) {
+                // Logic to handle not found;
+            }
+            
+            let movie = movies.results[0];
+            
+            let poster = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+            console.log(poster)
+        })
+      },
+
+      getMovieCast(id) {
+          let cast_url = `https://api.themoviedb.org/3/movie/${+id}/credits?api_key=${this.api_key}`
+            fetch(cast_url).then(movie => {
+                return movie.json();
+            }).then(movie => {
+                let top_cast = null;
+
+                if(movie.cast.length>=10){
+                    top_cast = [0,1,2,3,4,5,6,7,8,9];
+                }
+                else {
+                    top_cast = [0,1,2,3,4];
+                }
+                let casts = [];
+
+                for(var my_cast in top_cast){
+                    let obj = {};
+                    obj.id = (movie.cast[my_cast].id)
+                    obj.name = (movie.cast[my_cast].name);
+                    obj.profession = (movie.cast[my_cast].character);
+                    obj.profile = ("https://image.tmdb.org/t/p/original"+movie.cast[my_cast].profile_path);
+                    casts.push(obj);
+                }   
+                console.log(casts);
+            })
       }
     },
 
