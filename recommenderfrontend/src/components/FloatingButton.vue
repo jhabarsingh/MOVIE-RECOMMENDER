@@ -1,0 +1,16 @@
+<template>
+    <v-fab-transition>
+        <v-btn
+        v-show="!hidden"
+        color="pink"
+        dark
+        fixed
+        bottom
+        right
+        fab
+        @click="$router.push('/')"
+        >
+        <v-icon>mdi-home</v-icon>
+        </v-btn>
+    </v-fab-transition>
+</template>
