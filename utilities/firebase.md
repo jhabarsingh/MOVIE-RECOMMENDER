@@ -24,4 +24,4 @@ If using History Mode
 }
 `
 
-2. run `firebase deploy`
+2. run `npm run build && firebase deploy`
