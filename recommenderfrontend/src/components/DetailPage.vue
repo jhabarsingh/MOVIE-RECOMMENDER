@@ -7,6 +7,8 @@
             <v-divider />
             
             <Recommend />
+
+            <Footer />
         </div >
         <div v-else>
             <Loading />
@@ -18,11 +20,13 @@
 import Loading from './Loading.vue'
 import Recommend from './Recommend.vue'
 import MovieDetail from './MovieDetail.vue'
+import Footer from './Footer.vue'
 
 export default({
     components: {
         Loading,
         Recommend,
+        Footer,
         MovieDetail
     },
     data() {
