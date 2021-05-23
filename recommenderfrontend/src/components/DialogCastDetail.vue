@@ -6,7 +6,7 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="red lighten-2"
+          color="primary"
           dark
           v-bind="attrs"
           v-on="on"
@@ -17,12 +17,30 @@
 
       <v-card>
         <v-card-title class="headline grey lighten-2">
-          Privacy Policy
+          {{ $store.state.casts[+$store.state.present_cast].name  }}
         </v-card-title>
 
-        <v-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </v-card-text>
+        <v-img
+         height="250"
+         :src="url"
+        ></v-img>
+
+        <center>
+            <v-btn
+            class="mx-1"
+            color="primary"
+            rounded
+            style="text-align:center;margin:auto;margin:10px;"
+            >
+            {{ $store.state.casts[+$store.state.present_cast].known_for_department  }}
+            </v-btn>
+        </center>
+        
+        <v-card-text
+            style="text-align:justify;"
+        >
+            {{ $store.state.casts[+$store.state.present_cast].biography }}
+         </v-card-text>
 
         <v-divider></v-divider>
 
@@ -33,7 +51,7 @@
             text
             @click="$store.state.dialog = false"
           >
-            I accept
+            Close
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -45,8 +63,19 @@
   export default {
     data () {
       return {
-
+          url: null
       }
     },
+
+    methods: {
+        getImage() {
+           
+        }
+    },
+    updated() {
+         this.url = "https://image.tmdb.org/t/p/original" +  this.$store.state.casts[+this.$store.state.present_cast].profile_path;
+     
+    }
   }
+
 </script>
