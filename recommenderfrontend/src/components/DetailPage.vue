@@ -1,6 +1,8 @@
 <template>
     <div>
         <div v-if="$store.state.casts != null">
+            <MovieDetail />
+            <MovieCastList />
             <Recommend />
         </div >
         <div v-else>
@@ -10,12 +12,17 @@
 </template>
 
 <script>
-import Loading from './Loading.vue';
+import Loading from './Loading.vue'
 import Recommend from './Recommend.vue'
+import MovieDetail from './MovieDetail.vue'
+import MovieCastList from './MovieCastList.vue'
+
 export default({
     components: {
         Loading,
-        Recommend
+        Recommend,
+        MovieDetail,
+        MovieCastList
     },
     data() {
         return {
