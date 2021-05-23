@@ -72,7 +72,7 @@
       },
 
       fetchDetail() {
-          
+
           let url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${this.select}`;
           
           fetch(url).then(e => {
@@ -147,7 +147,10 @@
                     obj.profile = ("https://image.tmdb.org/t/p/original"+movie.cast[my_cast].profile_path);
                     casts.push(obj);
                 }   
-                console.log(casts);
+
+                for(let i in casts) {
+                    console.log(this.getPersonDetail(casts[i].id));
+                }
             })
       },
     
@@ -168,6 +171,16 @@
          })
 
          return ids;
+      },
+
+      async getPersonDetail(cast_id) {
+          let url = `https://api.themoviedb.org/3/person/${cast_id}?api_key=${this.api_key}&language=en-US`
+          
+          await fetch(url).then(details => {
+              return details.json();
+          }).then(details => {
+              console.log(details);
+          })
       }
 
     },
