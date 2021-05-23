@@ -1,29 +1,35 @@
 <template>
     <div>
-         HI
+        <div v-if="!$store.state.casts">
+            <Loading />
+        </div >
+        <div v-else>
+            <Recommend />
+        </div>
     </div>
 </template>
 
 <script>
+import Loading from './Loading.vue';
+import Recommend from './Recommend.vue'
 export default({
+    components: {
+        Loading,
+        Recommend
+    },
     data() {
         return {
             api_key: "88797a394acfd740740c5fefa973fca6",
+            select: null,
         }
     },
     methods: {
-      querySelections (v) {
-        this.loading = true
-        // Simulated ajax query
-        setTimeout(() => {
-          this.items = this.states.filter(e => {
-            return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
-          })
-          this.loading = false
-        }, 500)
+      sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
       },
 
       fetchDetail() {
+          this.select = localStorage.getItem("movie");
 
           let url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${this.select}`;
           
@@ -144,8 +150,9 @@ export default({
     created() {
         if(localStorage.getItem("movie")) {
             // Let The page Load
-            this.fetchDetail();
-            console.log(this.$store.state);
+            this.sleep("10000ms").then(() => {
+                this.fetchDetail();     
+            })
         }
         else {
             this.$router.push("/");
