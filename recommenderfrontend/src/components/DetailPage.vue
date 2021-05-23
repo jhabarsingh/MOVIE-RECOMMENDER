@@ -145,11 +145,33 @@ export default({
 
           return data;
       },
+
+      movieRecommender () {
+          let url = "http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/"
+          let movie = {
+              "text": localStorage.getItem("movie")
+          }
+          let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie),
+          }
+
+          fetch(url, options).then(e => {
+              return e.json();
+          }).then(details => {
+              this.$store.state.recommended = details;
+          })
+      }
+
     },
 
     created() {
         if(localStorage.getItem("movie")) {
             // Let The page Load
+            this.movieRecommender()
             this.sleep(2000).then(() => {
                 this.fetchDetail();
                 console.log(this.$store.state);     
