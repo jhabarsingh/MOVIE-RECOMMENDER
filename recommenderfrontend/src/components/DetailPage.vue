@@ -1,13 +1,15 @@
 <template>
-    
+    <div>
+         HI
+    </div>
 </template>
 
 <script>
 export default({
     data() {
-        return ({
+        return {
             api_key: "88797a394acfd740740c5fefa973fca6",
-        })
+        }
     },
     methods: {
       querySelections (v) {
@@ -36,7 +38,7 @@ export default({
               this.$store.state.id = movies.results[0].id;
               this.getMovieDetail(this.$store.state.id);
 
-              this.$store.state.poster = "https://image.tmdb.org/t/p/original" + e.results[0].backdrop_path;
+              this.$store.state.poster = "https://image.tmdb.org/t/p/original" + movies.results[0].backdrop_path;
               
               this.getMovieCast(this.$store.state.id);
           })
@@ -98,7 +100,7 @@ export default({
                 }   
                 let dp = [];
                 for(let i in casts) {
-                    let temp = await (this.getPersonDetail(casts[i].id));
+                    let temp = (this.getPersonDetail(casts[i].id));
                     dp.push(temp);
                 }
 
@@ -140,8 +142,10 @@ export default({
     },
 
     created() {
-        if(localStorage.getItem("movie_name")) {
+        if(localStorage.getItem("movie")) {
             // Let The page Load
+            this.fetchDetail();
+            console.log(this.$store.state);
         }
         else {
             this.$router.push("/");

@@ -23,7 +23,7 @@
             class="ma-2"
             color="secondary"
             dark
-            @click="fetchDetail"
+            @click="goToRecommender"
             >
             Search
             <v-icon
@@ -55,6 +55,10 @@
       },
     },
     methods: {
+        goToRecommender () {
+            localStorage.setItem("movie", this.select);
+            this.$router.push('/recommender')
+        }
     },
 
     created () {
