@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div v-if="!$store.state.casts">
-            <Loading />
+        <div v-if="$store.state.casts != null">
+            <Recommend />
         </div >
         <div v-else>
-            <Recommend />
+            <Loading />
         </div>
     </div>
 </template>
@@ -150,8 +150,9 @@ export default({
     created() {
         if(localStorage.getItem("movie")) {
             // Let The page Load
-            this.sleep("10000ms").then(() => {
-                this.fetchDetail();     
+            this.sleep(2000).then(() => {
+                this.fetchDetail();
+                console.log(this.$store.state);     
             })
         }
         else {

@@ -58,6 +58,7 @@
         goToRecommender () {
             localStorage.setItem("movie", this.select);
             this.$store.state.movie = this.select;
+            this.$store.state.casts = null;
             this.$router.push('/recommender')
         },
         querySelections (v) {
