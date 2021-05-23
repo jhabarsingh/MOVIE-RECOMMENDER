@@ -57,8 +57,19 @@
     methods: {
         goToRecommender () {
             localStorage.setItem("movie", this.select);
+            this.$store.state.movie = this.select;
             this.$router.push('/recommender')
-        }
+        },
+        querySelections (v) {
+            this.loading = true
+            // Simulated ajax query
+            setTimeout(() => {
+                this.items = this.states.filter(e => {
+                return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
+            })
+                this.loading = false
+            }, 500)
+      },
     },
 
     created () {
