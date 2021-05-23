@@ -2,7 +2,13 @@
     <div>
         <div v-if="$store.state.casts != null">
             <MovieDetail />
+
+            <v-divider />
+            
             <MovieCastList />
+            
+            <v-divider />
+            
             <Recommend />
         </div >
         <div v-else>
