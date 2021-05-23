@@ -121,7 +121,7 @@ export default({
                     let temp = (this.getPersonDetail(casts[i].id));
                     dp.push(temp);
                 }
-
+    
                 this.$store.state.casts = dp;
             })
       },
