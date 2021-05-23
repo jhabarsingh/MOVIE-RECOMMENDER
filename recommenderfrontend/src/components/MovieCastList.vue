@@ -23,12 +23,12 @@
         >
           <v-card>
             <v-img
-              :src="card.src"
+              :src="card.profile"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
             >
-              <v-card-title v-text="card.title"></v-card-title>
+              <v-card-title v-text="card.name"></v-card-title>
             </v-img>
 
             <v-card-actions>
@@ -52,10 +52,26 @@
   export default {
     data: () => ({
       cards: [
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 6 },
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+
       ],
     }),
+
+    async created() {
+        let item = []
+        for(let i in this.$store.state.casts) {
+            await this.$store.state.casts[i].then(e => {
+                item.push(e);
+            })
+        }
+        for(let i in item) {
+            let obj = [];
+            obj.name = item[i].name;
+            obj.bio = item[i].biography;
+            obj.dob = item[i].birthday;
+            obj.profession = item[i].known_for_department
+            obj.profile = "https://image.tmdb.org/t/p/original" + item[i].profile_path;
+            this.cards.push(obj);
+        }
+    }
   }
 </script>
