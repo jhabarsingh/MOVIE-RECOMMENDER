@@ -37,7 +37,7 @@
 
 
 ## About
-  [MOVIE-RECOMMENDER](http://movie-recommender-jhabar.000webhostapp.com/) is a Web app built using **Django** and **Vuejs**. Uses **Recurrent neural network LSTM** algorithm to detect **hatespeech** in a text. Hate speech detector can be used as a middleware between the servers and a client. Now a days we see many hatefull comments on social sites so having a detector like this can stop the hate spread to a large extend.
+  [MOVIE-RECOMMENDER](http://movie-recommender-jhabar.000webhostapp.com/) is a Web app built using **Django** and **Vuejs**. The **Machine Learning Algorithm** used to implement recommender system is **Cosine similarity**. To fetch the movie and it's cast detail **TMDB** Apis is used.
 
 
 
