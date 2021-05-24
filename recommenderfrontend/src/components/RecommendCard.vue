@@ -62,7 +62,7 @@
         changeRecommender() {
             this.$store.state.cast = null;
             localStorage.setItem("movie", this.movie);
-            location.reload();
+            this.$router.go();
         }
     },
 
