@@ -5,15 +5,15 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/recommender',
+    path: '/recommender/:name',
     name: 'Recommender',
     component: () => import(/* webpackChunkName: "about" */ '../views/Recommender.vue')
-  }
+  },
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
 ]
 
 const router = new VueRouter({
