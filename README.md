@@ -1,12 +1,10 @@
-# [RECOMMENDATION_SYSTEM]
-
-# [Backend]
-
-
 # [MOVIE-RECOMMENDER](http://movie-recommender-jhabar.000webhostapp.com/)  ⚡️ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/jhabarsingh/GRAPH-TESTCASE-VISUALIZER/blob/main/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/jhabarsingh/MOVIE-RECOMMENDER)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/stargazers)  [![GitHub contributors](https://img.shields.io/github/contributors/jhabarsingh/MOVIE-RECOMMENDER.svg)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/graphs/contributors)  [![GitHub issues](https://img.shields.io/github/issues/jhabarsingh/MOVIE-RECOMMENDER.svg)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/issues) [![GitHub forks](https://img.shields.io/github/forks/jhabarsingh/MOVIE-RECOMMENDER.svg?style=social&label=Fork)](https://GitHub.com/jhabarsingh/MOVIE-RECOMMENDER/network/)
 
+
+<br />
+
 <p align="center">
-  <img src="https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/doc/org_logo.png?raw=true" />
+  <img src="https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/docs/poster.png?raw=true" />
 </p>
 <details>
   <summary>:zap: TECH STACK</summary>
@@ -23,23 +21,28 @@
 </div>
 </details>
 
-## Apis Used
+<details>
+  <summary>:zap: AWS SERVICES</summary>
+  <br/>
+  <div style="display:flex;justify-content:space-around">
+    <img  title="AWS EC2" src="https://i0.wp.com/www.sndkcorp.com/wp-content/uploads/2019/09/amazon-ec2.png?fit=360%2C230&ssl=1" height="70px" style="margin-right:5px;" />
+</details>
+
+<br />
+
+## Apis Used To Fetch Movie Details
 
 <img  title="TMDB" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" height="50px" style="margin-right:5px;" />
   
 
 
 ## About
-  [MOVIE-RECOMMENDER]() is a Web app built using **Django** and **Vuejs**. Uses **Recurrent neural network LSTM** algorithm to detect **hatespeech** in a text. Hate speech detector can be used as a middleware between the servers and a client. Now a days we see many hatefull comments on social sites so having a detector like this can stop the hate spread to a large extend.
-
-## Preview
-
-![Preview](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/doc/preview.gif?raw=true)
+  [MOVIE-RECOMMENDER](http://movie-recommender-jhabar.000webhostapp.com/) is a Web app built using **Django** and **Vuejs**. Uses **Recurrent neural network LSTM** algorithm to detect **hatespeech** in a text. Hate speech detector can be used as a middleware between the servers and a client. Now a days we see many hatefull comments on social sites so having a detector like this can stop the hate spread to a large extend.
 
 
 
 ## [Django Backend Setup](http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/)
-![Django Apis](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/doc/apis.png?raw=true)
+![Django Apis](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/docs/api.png?raw=true)
 
 ### Using venv
 ```bash
