@@ -35,6 +35,7 @@ export default({
             select: null,
         }
     },
+    
     methods: {
       sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));

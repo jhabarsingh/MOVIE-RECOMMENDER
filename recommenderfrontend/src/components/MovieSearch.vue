@@ -59,7 +59,7 @@
             localStorage.setItem("movie", this.select);
             this.$store.state.movie = this.select;
             this.$store.state.casts = null;
-            this.$router.push('/recommender')
+            this.$router.push({ name: 'Recommender', query: { name: this.select }})
         },
         querySelections (v) {
             this.loading = true
