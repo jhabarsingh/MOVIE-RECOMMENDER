@@ -62,7 +62,11 @@
         changeRecommender() {
             this.$store.state.cast = null;
             localStorage.setItem("movie", this.movie);
-            this.$router.go();
+            this.$store.state.movie = this.movie;
+            console.log(this.$store.state.movie);
+
+            this.$router.replace({ name: 'Recommender', query: { name: this.movie }});
+            window.scrollTo(0,0);
         }
     },
 
