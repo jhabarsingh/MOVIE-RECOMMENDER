@@ -45,11 +45,12 @@
 
 
 
-## [Django Backend Setup](http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/)
+# How To Use The Django Recommendation Api?
+
 ![Django Apis](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/docs/api.png?raw=true)
 
+### Javascript
   
-### How To Use The Django Recommendation Api?
 ```js
   let movieName = "Avatar"; // Name of movie
   let URL = "http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/";
@@ -68,7 +69,36 @@
   .then(movies => console.log(movies)) // Array of all recommender Movies
   .catch(err => console.log(err.response))
   
+
+
 ```
+
+  
+### Python
+```python
+
+import requests
+import json
+movieName = "Avatar"
+URL = "http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/"
+
+
+headers = {
+	'Content-Type': 'application/json'
+}
+data = json.dumps({
+	'text': movieName
+})
+response = requests.post(URL, data=data, headers=headers)
+data = json.loads(response.text)
+print(data)
+
+
+
+```
+
+## [Django Backend Setup](http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/)
+
 ### Using venv
 ```bash
 git clone https://github.com/jhabarsingh/MOVIE-RECOMMENDER.git 
