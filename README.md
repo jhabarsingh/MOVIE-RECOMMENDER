@@ -1,6 +1,6 @@
 **NOTES**
 * [Video Link](https://youtu.be/elyK9-kDG7g)
-* [Recommender API](https://github.com/jhabarsingh/MOVIE-RECOMMENDER#how-to-use-the-django-recommendation-api?)
+* [Recommender API](https://github.com/jhabarsingh/MOVIE-RECOMMENDER#how-to-use-the-django-recommendation-api)
 
 # [MOVIE-RECOMMENDER](http://movie-recommender-jhabar.000webhostapp.com/)  ⚡️ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/jhabarsingh/MOVIE-RECOMMENDER)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/stargazers)  [![GitHub contributors](https://img.shields.io/github/contributors/jhabarsingh/MOVIE-RECOMMENDER.svg)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/graphs/contributors)  [![GitHub issues](https://img.shields.io/github/issues/jhabarsingh/MOVIE-RECOMMENDER.svg)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/issues) [![GitHub forks](https://img.shields.io/github/forks/jhabarsingh/MOVIE-RECOMMENDER.svg?style=social&label=Fork)](https://GitHub.com/jhabarsingh/MOVIE-RECOMMENDER/network/)
 
