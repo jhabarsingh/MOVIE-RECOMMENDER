@@ -1,3 +1,9 @@
+**NOTES**
+* [Video Link](https://youtu.be/elyK9-kDG7g)
+* [Recommender API](https://github.com/jhabarsingh/MOVIE-RECOMMENDER#how-to-use-the-django-recommendation-api)
+
+*To use the Recommender API that I have created in this project Click on this [Link](https://github.com/jhabarsingh/MOVIE-RECOMMENDER#how-to-use-the-django-recommendation-api)*
+
 # [MOVIE-RECOMMENDER](http://movie-recommender-jhabar.000webhostapp.com/)  ⚡️ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/jhabarsingh/MOVIE-RECOMMENDER)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/stargazers)  [![GitHub contributors](https://img.shields.io/github/contributors/jhabarsingh/MOVIE-RECOMMENDER.svg)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/graphs/contributors)  [![GitHub issues](https://img.shields.io/github/issues/jhabarsingh/MOVIE-RECOMMENDER.svg)](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/issues) [![GitHub forks](https://img.shields.io/github/forks/jhabarsingh/MOVIE-RECOMMENDER.svg?style=social&label=Fork)](https://GitHub.com/jhabarsingh/MOVIE-RECOMMENDER/network/)
 
 
@@ -41,8 +47,59 @@
 
 
 
-## [Django Backend Setup](http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/)
+# How To Use The Django Recommendation Api?
+
 ![Django Apis](https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/docs/api.png?raw=true)
+
+### Javascript
+  
+```js
+  let movieName = "Avatar"; // Name of movie
+  let URL = "http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/";
+  let options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "text": movieName
+      })
+  }
+  
+  fetch(URL, options)
+  .then(res => res.json())
+  .then(movies => console.log(movies)) // Array of all recommender Movies
+  .catch(err => console.log(err.response))
+  
+
+
+```
+
+  
+### Python
+```python
+
+import requests
+import json
+movieName = "Avatar"
+URL = "http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/"
+
+
+headers = {
+	'Content-Type': 'application/json'
+}
+data = json.dumps({
+	'text': movieName
+})
+response = requests.post(URL, data=data, headers=headers)
+data = json.loads(response.text)
+print(data)
+
+
+
+```
+
+## [Django Backend Setup](http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/)
 
 ### Using venv
 ```bash
