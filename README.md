@@ -40,12 +40,12 @@
 
 <img  title="TMDB" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" height="50px" style="margin-right:5px;" />
   
+<br />
 
-
-## About
+# About
   [MOVIE-RECOMMENDER](http://movie-recommender-jhabar.000webhostapp.com/) is a Web app built using **Django** and **Vuejs**. The **Machine Learning Algorithm** used to implement recommender system is **Cosine similarity**. To fetch the movie and it's cast detail **TMDB** Apis is used.
 
-
+<br />
 
 # How To Use The Django Recommendation Api?
 
@@ -99,7 +99,9 @@ print(data)
 
 ```
 
-## [Django Backend Setup](http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/)
+<br />
+	
+# [Django Backend Setup](http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/)
 
 ### Using venv
 ```bash
@@ -143,7 +145,8 @@ sudo docker-compose up
  npm run start # Vuejs should be installed
  ```
 
-
+<br />
+	
 # [Want To Contribute](https://medium.com/mindsdb/contributing-to-an-open-source-project-how-to-get-started-6ba812301738)
 ### You can contribute to this project in many ways
  1. You can create an issue if you find any bug.
