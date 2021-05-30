@@ -101,6 +101,16 @@ print(data)
 
 <br />
 	
+# [Cosine Similarity](https://www.geeksforgeeks.org/cosine-similarity/)
+> The recommender system calculates the cosine similarity beween the different movies and lesser the angle ‘θ’ greated is the similarity.
+	
+<p align="center">
+	<img src="" />
+</p>
+*To know more about cosine similarity Read this [Blog](https://www.geeksforgeeks.org/cosine-similarity/)*
+	
+<br />
+	
 # [Django Backend Setup](http://ec2-3-142-140-94.us-east-2.compute.amazonaws.com:8000/recommender/)
 
 ### Using venv
