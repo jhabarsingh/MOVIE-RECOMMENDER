@@ -1,0 +1,2 @@
+1. Sentiment Dataset: https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews/data
+2. Movie Recommender Dataset: https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset
