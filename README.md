@@ -105,9 +105,10 @@ print(data)
 > The recommender system calculates the cosine similarity beween the different movies and lesser the angle ‘θ’ greated is the similarity.
 	
 <p align="center">
-	<img src="" />
+	<img src="https://github.com/jhabarsingh/MOVIE-RECOMMENDER/blob/main/docs/cosine_similarity.png?raw=true" />
 </p>
-*To know more about cosine similarity Read this [Blog](https://www.geeksforgeeks.org/cosine-similarity/)*
+	
+*To know more about the **Cosine Similarity** Read this [Blog](https://www.geeksforgeeks.org/cosine-similarity/)*
 	
 <br />
 	
