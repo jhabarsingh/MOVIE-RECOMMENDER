@@ -1,3 +1,5 @@
+ **Backend EC2 Instance has been terminated so api's won't work**
+
 **NOTES**
 * [Video Link](https://youtu.be/elyK9-kDG7g)
 * [Recommender API](https://github.com/jhabarsingh/MOVIE-RECOMMENDER#how-to-use-the-django-recommendation-api)
