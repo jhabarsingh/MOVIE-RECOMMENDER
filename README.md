@@ -1,4 +1,4 @@
- **Backend EC2 Instance has been terminated so api's won't work**
+ **Backend EC2 Instance has been terminated so api's and website won't work**
 
 **NOTES**
 * [Video Link](https://youtu.be/elyK9-kDG7g)
